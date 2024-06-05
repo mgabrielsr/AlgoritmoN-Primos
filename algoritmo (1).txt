@@ -1,0 +1,64 @@
+Algoritmo "NumerosPrimos"
+// Implementar um algoritmo para imprimir e somar todos os números primos menores ou iguais a um número dado
+// Declarar variáveis
+Var
+    numero, soma, i, j: inteiro
+    primo: logico
+    sair, testar: caractere
+
+Inicio
+    // Pergunta se o usuário deseja testar o programa
+    escreval("Deseja testar o programa? (S/N)")
+    leia(testar)
+
+    // Verifica se o usuário não deseja testar o programa e encerra
+    se (testar = "n") ou (testar = "N") entao
+        escreval("Programa finalizado.")
+        fimalgoritmo
+    senao
+        // Inicia o loop de execução do programa
+        repita
+            soma <- 0
+
+            // Solicita ao usuário que digite um número
+            escreval("Digite um número inteiro positivo:")
+            leia(numero)
+
+            // Verifica se o número é válido
+            enquanto numero <= 1 faca
+                escreval("O número precisa ser maior que 1. Digite novamente:")
+                leia(numero)
+            fimenquanto
+
+            // Calcula e exibe os números primos menores ou iguais ao número dado
+            escreval("Números primos menores ou iguais a ", numero, ":")
+            para i de numero ate 2 passo -1 faca
+                primo <- verdadeiro
+                para j de 2 ate (i - 1) faca
+                    se i % j = 0 entao
+                        primo <- falso
+                        interrompa
+                    fimse
+                fimpara
+
+                se primo entao
+                    escreval(i, " ")
+                    soma <- soma + i
+                fimse
+            fimpara
+
+            // Exibe a soma dos números primos
+            escreval()
+            escreval("A soma de todos os números primos menores ou iguais a ", numero, " é: ", soma)
+
+            // Pergunta se o usuário deseja sair do programa
+            escreval("Deseja sair? (S/N)")
+            leia(sair)
+        ate (sair = "S") ou (sair = "s")
+
+        // Exibe mensagem de encerramento do programa
+        escreval("Programa encerrado.")
+        fimalgoritmo
+    fimse
+Fimalgoritmo
+
